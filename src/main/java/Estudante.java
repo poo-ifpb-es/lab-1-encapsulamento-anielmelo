@@ -5,7 +5,7 @@ public class Estudante {
     private String nome;
 
     //construtor
-    public Estudante(int matricula, String nome) {
+    public Estudante(String nome, int matricula) {
         this.matricula = matricula;
         this.nome = nome;
     }
