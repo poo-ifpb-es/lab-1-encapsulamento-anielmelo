@@ -1,6 +1,6 @@
 public class CarroNaoPagoException extends Exception {
     
-    public CarroIndisponivelException(String message) {
+    public CarroNaoPagoException(String message) {
         super(message);
     }
 
