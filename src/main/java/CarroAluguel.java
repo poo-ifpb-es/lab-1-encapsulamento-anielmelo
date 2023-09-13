@@ -39,18 +39,22 @@ public class CarroAluguel {
         }
     }
 
-    public void devolver() throws CarroDisponivelException, CarroNaoPagoException {
+    public void devolver() throws CarroDisponivelException {
         if (this.isDisponivel() == true) {
             throw new CarroDisponivelException("O carro está disponível.");
         } else {
-            if (this.getDebito() > 0) {
-                throw new CarroNaoPagoException("O carro não foi pago.");
-            } else {
-                this.statusDisponivel = true;
-                this.debito = 0;
-                this.distanciaPercorrida = 0;
-                this.setSinistro(false);
-            }
+            this.verificaPagamento();
+        }
+    }
+
+    private void verificaPagamento() throws CarroNaoPagoException {
+        if (this.getDebito() > 0) {
+            throw new CarroNaoPagoException("O carro não foi pago.");
+        } else {
+            this.statusDisponivel = true;
+            this.debito = 0;
+            this.distanciaPercorrida = 0;
+            this.setSinistro(false);
         }
     }
 
